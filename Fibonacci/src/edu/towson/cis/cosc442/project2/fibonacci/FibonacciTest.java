@@ -40,4 +40,9 @@ public class FibonacciTest {
 		assertEquals("6", 8, fibonacci.fibonacci(6));
 		assertEquals("7", 13, fibonacci.fibonacci(7));
 	}
+	
+	@After
+	public void tearDown(){
+		fibonacci = null;
+	}
 }

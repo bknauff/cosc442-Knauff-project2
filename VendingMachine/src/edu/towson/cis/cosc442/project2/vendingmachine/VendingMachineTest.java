@@ -53,7 +53,7 @@ public class VendingMachineTest {
 	
 	@Test(expected = VendingMachineException.class)
 	public void testAddItemUnknown(){
-		vendingMachine.addItem(vendingMachineItem, "Unknown");
+		vendingMachine.addItem(vendingMachineItem, "E");
 	}
 	
 	/*
@@ -64,11 +64,11 @@ public class VendingMachineTest {
 	@Test
 	public void testRemoveItem() {
 		vendingMachine.removeItem(VendingMachine.D_CODE);
-		//vendingMachine.removeItem(VendingMachine.D_CODE);
+		assertNull(vendingMachine.getItem(VendingMachine.D_CODE));
 	}
 	
 	@Test(expected = VendingMachineException.class)
-	public void testRemoveItemExceptionCHeck(){
+	public void testRemoveItemExceptionCheck(){
 		vendingMachine.removeItem(VendingMachine.D_CODE);
 	    vendingMachine.removeItem(VendingMachine.D_CODE);
 	}
@@ -76,7 +76,7 @@ public class VendingMachineTest {
 	//Testing for Unknown
 	@Test(expected = VendingMachineException.class)
 	public void testRemoveUnknownItem(){
-		vendingMachine.removeItem("Unknown");
+		vendingMachine.removeItem("E");
 	}
 	
 	/*
@@ -90,7 +90,7 @@ public class VendingMachineTest {
 	
 	@Test(expected = VendingMachineException.class)
 	public void testInsertMoneyNegativeValue(){
-		vendingMachine.insertMoney(-5.0);
+		vendingMachine.insertMoney(-1.0);
 	}
 
 	/*
@@ -118,7 +118,7 @@ public class VendingMachineTest {
 	 * Check to see if it will allow to make same purchase again
 	 */
 	public void testPurchaseForNull(){
-		assertTrue(!vendingMachine.makePurchase(VendingMachine.D_CODE));
+		assertFalse(vendingMachine.makePurchase(VendingMachine.D_CODE));
 	}
 
 	/*

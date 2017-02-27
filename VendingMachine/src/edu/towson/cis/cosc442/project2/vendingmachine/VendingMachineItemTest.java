@@ -33,8 +33,8 @@ public class VendingMachineItemTest {
 	}
 
 	@Test(expected = VendingMachineException.class)
-	public void testConstructorNegativeValues(){
-		assertSame(machineException, new VendingMachineItem("Water", -0.1));
+	public void testNegativeValues(){
+		assertSame(machineException, new VendingMachineItem("Water", -0.0));
 	}
 	
 	@Test
